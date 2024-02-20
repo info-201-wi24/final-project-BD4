@@ -1,7 +1,7 @@
 # Music Trends and Geographical Location 
 ## INFO 201 "Foundational Skills for Data Science"
 
-Authors: Your names here
+Authors: Alex Han,
 
 
 For the Final Project -- Data Wrangling, add the following to this code repository:
