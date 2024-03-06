@@ -8,13 +8,13 @@ dataset <- read.csv("top_songs_and_country.csv")
 country_col_name <- colnames(dataset)
 
 our_theme <- bs_theme(bg = "#FFFFFF", #background
-                     fg = "#1ED760", #foreground color
-                     primary = "#000000", # primary color
+                     fg = "#191414", #foreground color
+                     primary = "#FFFFFF", # primary color
 )
 
 ## OVERVIEW TAB INFO
 
-overview_tab <- tabPanel("Music Trends and Genre",
+overview_tab <- tabPanel("Introduction",
    h1("Some title"),
    p("some explanation")
 )
@@ -69,16 +69,29 @@ viz_2_tab <- tabPanel("Singles vs. Album Songs",
 ## VIZ 3 TAB INFO
 
 viz_3_sidebar <- sidebarPanel(
-  h2("Options for graph"),
-  #TODO: Put inputs for modifying graph here
+  h2("Countries"),
+  selectInput(
+    inputId = "viz_3_country",
+    label = "Country to Analyze",
+    choices = dataset$country,
+    selected = "US",
+    multiple = TRUE
+  ),
+  radioButtons(
+    inputId = "viz_3_explicit",
+    label = "Explicit or Not Explicit",
+    choices = c("Explicit", "Not Explicit"),
+    selected = "Explicit"
+  )
+  
 )
 
 viz_3_main_panel <- mainPanel(
-  h2("Vizualization 3 Title"),
-  # plotlyOutput(outputId = "your_viz_1_output_id")
+  h2("Country and Number of Explicit Songs"),
+  plotlyOutput(outputId = "country_explicit_plot")
 )
 
-viz_3_tab <- tabPanel("Viz 3 tab title",
+viz_3_tab <- tabPanel("Country and Explicit Songs",
   sidebarLayout(
     viz_3_sidebar,
     viz_3_main_panel

@@ -22,7 +22,7 @@ server <- function(input, output){
     return(ggplotly(my_plot))
   })
 
-output$sng_vs_alb_out <- renderPlotly({
+  output$sng_vs_alb_out <- renderPlotly({
 
     filtered_data <- dataset
     if (input$sng_vs_alb_select != "Both") {
@@ -40,4 +40,24 @@ output$sng_vs_alb_out <- renderPlotly({
     ggplotly(p)
   })
   
+  output$country_explicit_plot <- renderPlotly({
+    
+    
+    if (input$viz_3_explicit == "Explicit") {
+      filtered_dataset <- dataset %>% filter(country %in% input$viz_3_country) %>% filter(is_explicit == "True")
+    } else {
+      filtered_dataset <- dataset %>% filter(country %in% input$viz_3_country) %>% filter(is_explicit == "False")
+    }
+    
+    count_data <- filtered_dataset %>% group_by(country) %>% summarize(count = n())
+    
+    my_plot <- ggplot(count_data) +
+      geom_col(mapping = aes(
+        x = country,
+        y = count
+      )) +
+      labs(title = "Number of Explicit or Not Explicit Songs by Country")
+    return(ggplotly(my_plot))
+  })
+
 }
