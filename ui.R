@@ -46,18 +46,20 @@ viz_1_tab <- tabPanel("Viz 1 tab title",
 )
 
 ## VIZ 2 TAB INFO
-
 viz_2_sidebar <- sidebarPanel(
-  h2("Options for graph"),
-  #TODO: Put inputs for modifying graph here
+  h2("Song Popularity by Release Type"),
+  radioButtons(inputId = "sng_vs_alb_select",
+               label = "Song Type",
+               choices = list("Both" , "Single" , "Album" ),
+               selected = "Single")
 )
 
 viz_2_main_panel <- mainPanel(
-  h2("Vizualization 2 Title"),
-  # plotlyOutput(outputId = "your_viz_1_output_id")
+  h2("Do single releases become more popular than songs in album releases?"),
+  plotlyOutput(outputId = "sng_vs_alb_out")
 )
 
-viz_2_tab <- tabPanel("Viz 2 tab title",
+viz_2_tab <- tabPanel("Singles vs. Album Songs",
   sidebarLayout(
     viz_2_sidebar,
     viz_2_main_panel
