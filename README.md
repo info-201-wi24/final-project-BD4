@@ -1,4 +1,4 @@
-# Music Trends vs. Geographical Location
+# Music Trends vs. Genre
 ## INFO 201 "Foundational Skills for Data Science"
 
 Authors: Alex Han,
