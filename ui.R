@@ -5,6 +5,8 @@ library(bslib)
 
 dataset <- read.csv("top_songs_and_country.csv")
 
+country_col_name <- colnames(dataset)
+
 our_theme <- bs_theme(bg = "#FFFFFF", #background
                      fg = "#1ED760", #foreground color
                      primary = "#000000", # primary color
@@ -12,7 +14,7 @@ our_theme <- bs_theme(bg = "#FFFFFF", #background
 
 ## OVERVIEW TAB INFO
 
-overview_tab <- tabPanel("Music Trends and Geographical Location",
+overview_tab <- tabPanel("Music Trends and Genre",
    h1("Some title"),
    p("some explanation")
 )
@@ -22,11 +24,18 @@ overview_tab <- tabPanel("Music Trends and Geographical Location",
 viz_1_sidebar <- sidebarPanel(
   h2("Options for graph"),
   #TODO: Put inputs for modifying graph here
+  selectInput(
+    inputId = "viz_1_x_axis",
+    label = "Country to Analyze",
+    choices = dataset$country,
+    selected = "US",
+    multiple = TRUE
+  )
 )
 
 viz_1_main_panel <- mainPanel(
-  h2("Vizualization 1 Title"),
-  # plotlyOutput(outputId = "your_viz_1_output_id")
+  h2("Country and Dist. of Energy Levels"),
+  plotlyOutput(outputId = "country_energy_plot")
 )
 
 viz_1_tab <- tabPanel("Viz 1 tab title",
