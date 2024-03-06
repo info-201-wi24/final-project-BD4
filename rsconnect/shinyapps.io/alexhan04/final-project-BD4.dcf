@@ -1,0 +1,13 @@
+name: final-project-BD4
+title: final-project-BD4
+username: alexhan04
+account: alexhan04
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11416959
+bundleId: 8339042
+url: https://alexhan04.shinyapps.io/final-project-BD4/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .Rapp.history|.RData|README.md|Spotify Data Label.pdf|Table_Joining.R
