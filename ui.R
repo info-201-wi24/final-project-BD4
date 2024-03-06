@@ -9,14 +9,16 @@ country_col_name <- colnames(dataset)
 
 our_theme <- bs_theme(bg = "#FFFFFF", #background
                      fg = "#191414", #foreground color
-                     primary = "#FFFFFF", # primary color
+                     primary = "#1ED760" # primary color
 )
 
 ## OVERVIEW TAB INFO
 
 overview_tab <- tabPanel("Introduction",
-   h1("Some title"),
-   p("some explanation")
+   h1("Analysis of Spotify Music Trends and Geographical Location"),
+   h5("By Alex Han, Nimrod Tsegay, Torian Thirdgill-Lewis"),
+   includeMarkdown("intro_text.md"),
+   img(src="unnamed.png")
 )
 
 ## VIZ 1 TAB INFO
@@ -100,9 +102,9 @@ viz_3_tab <- tabPanel("Country and Explicit Songs",
 
 ## CONCLUSIONS TAB INFO
 
-conclusion_tab <- tabPanel("Conclusion Tab Title",
- h1("Some title"),
- p("some conclusions")
+conclusion_tab <- tabPanel("Conclusion",
+ h1("Final Observations"),
+ includeMarkdown("conclusion_text.md")
 )
 
 
