@@ -22,7 +22,7 @@ overview_tab <- tabPanel("Music Trends and Genre",
 ## VIZ 1 TAB INFO
 
 viz_1_sidebar <- sidebarPanel(
-  h2("Options for graph"),
+  h2("Countries"),
   #TODO: Put inputs for modifying graph here
   selectInput(
     inputId = "viz_1_x_axis",
@@ -38,7 +38,7 @@ viz_1_main_panel <- mainPanel(
   plotlyOutput(outputId = "country_energy_plot")
 )
 
-viz_1_tab <- tabPanel("Viz 1 tab title",
+viz_1_tab <- tabPanel("Country vs. Song Energy Level",
   sidebarLayout(
     viz_1_sidebar,
     viz_1_main_panel
@@ -94,7 +94,7 @@ conclusion_tab <- tabPanel("Conclusion Tab Title",
 
 
 
-ui <- navbarPage("Example Project Title",
+ui <- navbarPage("Geographical Spotify Analysis",
   theme = our_theme,
   overview_tab,
   viz_1_tab,
